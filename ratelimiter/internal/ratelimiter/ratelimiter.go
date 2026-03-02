@@ -22,7 +22,7 @@ func ApplyMiddleware(next http.Handler, rules map[string]config.Rule) http.Handl
 		case "sliding-window":
 			middleware, err = slidingwindow.NewMiddleware(next, rule)
 		default:
-			slog.Warn("unknown rule type: %s", rule.Type)
+			slog.Warn("unknown rule type", "rule_type", rule.Type)
 			continue
 		}
 
