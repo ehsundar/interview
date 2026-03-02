@@ -1,0 +1,20 @@
+{
+  "rules": {
+    "one_per_sec_all": {
+      "type": "fixed-window",
+      "path_match": "^/.*$",
+      "limit": 1,
+      "fixed_window": {
+        "window_ms": 1000
+      }
+    },
+    "five_per_min_api": {
+      "type": "sliding-window",
+      "path_match": "^/api/.*$",
+      "limit": 5,
+      "sliding_window": {
+        "window_ms": 60000
+      }
+    }
+  }
+}
